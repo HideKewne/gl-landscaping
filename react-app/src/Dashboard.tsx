@@ -226,6 +226,10 @@ function Dashboard() {
                   </div>
                 </div>
                 <div className="form-group">
+                  <label htmlFor="subject">Subject</label>
+                  <input type="text" id="subject" placeholder="How can we help?" />
+                </div>
+                <div className="form-group">
                   <label htmlFor="message">Message</label>
                   <textarea id="message" placeholder="Tell us about your project..."></textarea>
                 </div>

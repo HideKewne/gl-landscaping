@@ -644,13 +644,13 @@ body {
     color: var(--text-secondary);
 }
 
-/* Left badges */
-.badge-left.badge-1 { top: 30px; left: -140px; }
-.badge-left.badge-2 { top: 90px; left: -120px; }
+/* Left badges — overlapping card left edge */
+.badge-left.badge-1 { top: 40px; left: -100px; }
+.badge-left.badge-2 { top: 95px; left: -90px; }
 
-/* Right badges */
-.badge-right.badge-3 { top: 30px; right: -120px; }
-.badge-right.badge-4 { top: 90px; right: -140px; }
+/* Right badges — overlapping card right edge */
+.badge-right.badge-3 { top: 40px; right: -95px; }
+.badge-right.badge-4 { top: 95px; right: -105px; }
 
 /* Main form card - single centered */
 .contact-form-card {
@@ -707,12 +707,12 @@ body {
 
 .form-group input,
 .form-group textarea {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(var(--primary-rgb), 0.25);
     border-radius: 8px;
-    padding: 10px 14px;
+    padding: 9px 12px;
     color: var(--text-primary);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-family: inherit;
     outline: none;
     transition: border-color 0.3s;
@@ -725,7 +725,7 @@ body {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 90px;
+    min-height: 70px;
 }
 
 .form-submit {
