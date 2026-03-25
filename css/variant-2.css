@@ -279,8 +279,8 @@ body {
     height: 480px;
     border-radius: 50% 50% 50% 20%;
     overflow: hidden;
-    border: 3px solid rgba(var(--primary-rgb), 0.4);
-    box-shadow: 0 0 60px rgba(var(--primary-rgb), 0.2), inset 0 0 60px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(var(--primary-rgb), 0.5);
+    box-shadow: 0 0 80px rgba(var(--primary-rgb), 0.35), 0 0 120px rgba(var(--primary-rgb), 0.15), inset 0 0 60px rgba(0, 0, 0, 0.3);
     position: relative;
 }
 
@@ -303,13 +303,14 @@ body {
 
 .services-bento {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1.4fr 1fr;
     grid-template-rows: auto auto;
     gap: var(--gap);
+    align-items: start;
 }
 
 .service-card {
-    padding: 28px;
+    padding: 24px;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -321,43 +322,79 @@ body {
     border-color: rgba(var(--primary-rgb), 0.5);
 }
 
-.service-card.large {
-    grid-row: span 2;
-    grid-column: 2;
-    position: relative;
-    overflow: hidden;
+/* Service cards with photo thumbnails */
+.service-card.has-thumb {
     padding: 0;
+    overflow: hidden;
 }
 
-.service-card.large .service-image {
+.service-card.has-thumb .service-thumb {
     width: 100%;
-    height: 60%;
+    height: 100px;
     object-fit: cover;
     border-radius: var(--radius) var(--radius) 0 0;
 }
 
-.service-card.large .service-content {
-    padding: 24px 28px;
+.service-card.has-thumb h3,
+.service-card.has-thumb p {
+    padding: 0 20px;
 }
 
-.service-card .service-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(var(--primary-rgb), 0.2);
-    border-radius: 12px;
+.service-card.has-thumb h3 {
+    padding-top: 16px;
+}
+
+.service-card.has-thumb p {
+    padding-bottom: 20px;
+}
+
+/* Center organic image card */
+.service-card-center {
+    grid-row: span 2;
+    grid-column: 2;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    gap: 16px;
+    position: relative;
 }
 
-.service-card .service-icon svg {
-    width: 24px;
-    height: 24px;
-    color: var(--primary);
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 2;
+.service-organic-image {
+    width: 320px;
+    height: 320px;
+    border-radius: 50% 50% 50% 20%;
+    overflow: hidden;
+    border: 3px solid rgba(var(--primary-rgb), 0.4);
+    box-shadow: 0 0 50px rgba(var(--primary-rgb), 0.25), 0 20px 60px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 2;
+}
+
+.service-organic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-center-info {
+    padding: 20px 24px;
+    text-align: center;
+    margin-top: -40px;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+.service-center-info h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.service-center-info p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 .service-card h3 {
@@ -383,7 +420,8 @@ body {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 12px;
+    position: relative;
 }
 
 .portfolio-item {
@@ -391,6 +429,14 @@ body {
     overflow: hidden;
     position: relative;
     cursor: pointer;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
 .portfolio-item img {
@@ -402,7 +448,7 @@ body {
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .portfolio-item.tall {
@@ -414,6 +460,16 @@ body {
 .portfolio-item:nth-child(3) { height: 220px; }
 .portfolio-item:nth-child(4) { height: 220px; }
 
+/* Depth overlay on non-hovered items */
+.portfolio-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
 .portfolio-overlay {
     position: absolute;
     inset: 0;
@@ -423,6 +479,7 @@ body {
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s;
+    z-index: 1;
 }
 
 .portfolio-item:hover .portfolio-overlay {
@@ -451,21 +508,22 @@ body {
 }
 
 .testimonial-quotes {
-    font-size: 5rem;
+    font-size: 8rem;
     color: var(--primary);
     line-height: 1;
-    opacity: 0.6;
+    opacity: 0.7;
     position: absolute;
-    top: 12px;
-    left: 40px;
+    top: -10px;
+    left: 24px;
     font-family: Georgia, serif;
+    text-shadow: 0 0 40px rgba(var(--primary-rgb), 0.3);
 }
 
 .testimonial-quotes.end {
     left: auto;
-    right: 40px;
+    right: 24px;
     top: auto;
-    bottom: 12px;
+    bottom: -10px;
     transform: rotate(180deg);
 }
 
@@ -532,6 +590,32 @@ body {
     grid-template-columns: 200px 1fr 200px;
     gap: var(--gap);
     align-items: start;
+    position: relative;
+}
+
+/* Localized decorative blobs around contact section */
+.contact-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contact-blob-left {
+    width: 250px;
+    height: 250px;
+    background: rgba(var(--primary-rgb), 0.3);
+    top: -40px;
+    left: -60px;
+}
+
+.contact-blob-right {
+    width: 200px;
+    height: 200px;
+    background: rgba(var(--primary-rgb), 0.25);
+    bottom: -30px;
+    right: -40px;
 }
 
 .contact-info-left,
@@ -540,19 +624,23 @@ body {
     flex-direction: column;
     gap: 16px;
     padding-top: 24px;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-badge {
-    padding: 16px 20px;
+    padding: 14px 18px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 0.85rem;
+    gap: 10px;
+    font-size: 0.8rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .contact-badge svg {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     color: var(--primary);
     flex-shrink: 0;
     fill: none;
@@ -566,6 +654,21 @@ body {
 
 .contact-form-card {
     padding: 40px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Accent line at top of form card */
+.contact-form-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), rgba(var(--primary-rgb), 0.3));
+    border-radius: var(--radius) var(--radius) 0 0;
 }
 
 .contact-form {
