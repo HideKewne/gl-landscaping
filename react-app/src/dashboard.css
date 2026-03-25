@@ -601,19 +601,19 @@ body {
 }
 
 .contact-blob-left {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     background: rgba(var(--primary-rgb), 0.45);
-    top: -80px;
-    left: -120px;
+    top: -40px;
+    left: -80px;
 }
 
 .contact-blob-right {
-    width: 280px;
-    height: 280px;
-    background: rgba(var(--primary-rgb), 0.4);
-    bottom: -60px;
-    right: -100px;
+    width: 320px;
+    height: 320px;
+    background: rgba(var(--primary-rgb), 0.5);
+    bottom: -40px;
+    right: -80px;
 }
 
 /* Floating compact pill badges */
@@ -654,7 +654,7 @@ body {
 
 /* Main form card - single centered */
 .contact-form-card {
-    padding: 40px;
+    padding: 28px 32px 32px;
     position: relative;
     z-index: 1;
     overflow: hidden;
@@ -673,45 +673,46 @@ body {
 }
 
 .contact-form-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     color: var(--text-primary);
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 14px;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    gap: 14px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .form-group label {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
-    font-weight: 500;
+    font-weight: 600;
+    text-transform: capitalize;
 }
 
 .form-group input,
 .form-group textarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 10px 14px;
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-family: inherit;
     outline: none;
     transition: border-color 0.3s;
@@ -724,21 +725,21 @@ body {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 90px;
 }
 
 .form-submit {
     background: var(--primary);
     color: white;
-    padding: 14px 32px;
-    border-radius: 12px;
+    padding: 10px 28px;
+    border-radius: 20px;
     border: none;
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
     width: fit-content;
-    margin: 0 auto;
+    margin: 4px auto 0;
 }
 
 .form-submit:hover {
