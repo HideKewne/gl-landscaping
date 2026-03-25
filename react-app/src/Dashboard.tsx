@@ -22,7 +22,7 @@ function Dashboard() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [testimonialOpacity, setTestimonialOpacity] = useState(1)
   const [navBg, setNavBg] = useState('rgba(10, 10, 10, 0.6)')
-  const [submitText, setSubmitText] = useState('Send Message')
+  const [submitText, setSubmitText] = useState('Contact')
   const [submitBg, setSubmitBg] = useState('')
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function Dashboard() {
     setSubmitText('Sent!')
     setSubmitBg('#1B5E20')
     setTimeout(() => {
-      setSubmitText('Send Message')
+      setSubmitText('Contact')
       setSubmitBg('')
       const form = e.target as HTMLFormElement
       form.reset()

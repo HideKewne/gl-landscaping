@@ -704,20 +704,20 @@ body {
 }
 
 .form-group label {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    font-weight: 600;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    font-weight: 400;
     text-transform: capitalize;
 }
 
 .form-group input,
 .form-group textarea {
     background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(var(--primary-rgb), 0.25);
-    border-radius: 8px;
-    padding: 9px 12px;
+    border: 1px solid rgba(var(--primary-rgb), 0.15);
+    border-radius: 5px;
+    padding: 8px 10px;
     color: var(--text-primary);
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-family: inherit;
     outline: none;
     transition: border-color 0.3s;
