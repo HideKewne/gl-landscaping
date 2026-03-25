@@ -584,17 +584,14 @@ body {
     margin-bottom: 48px;
 }
 
-.contact-wrapper {
-    max-width: 1000px;
+/* Single centered card wrapper with floating badges */
+.contact-card-wrapper {
+    max-width: 700px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 200px 1fr 200px;
-    gap: var(--gap);
-    align-items: start;
     position: relative;
 }
 
-/* Localized decorative blobs around contact section */
+/* Localized decorative blobs */
 .contact-blob {
     position: absolute;
     border-radius: 50%;
@@ -606,42 +603,36 @@ body {
 .contact-blob-left {
     width: 300px;
     height: 300px;
-    background: rgba(var(--primary-rgb), 0.4);
-    top: -60px;
-    left: -80px;
+    background: rgba(var(--primary-rgb), 0.45);
+    top: -80px;
+    left: -120px;
 }
 
 .contact-blob-right {
-    width: 250px;
-    height: 250px;
-    background: rgba(var(--primary-rgb), 0.35);
-    bottom: -50px;
-    right: -60px;
+    width: 280px;
+    height: 280px;
+    background: rgba(var(--primary-rgb), 0.4);
+    bottom: -60px;
+    right: -100px;
 }
 
-.contact-info-left,
-.contact-info-right {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding-top: 24px;
-    position: relative;
-    z-index: 1;
-}
-
+/* Floating compact pill badges */
 .contact-badge {
-    padding: 14px 18px;
+    position: absolute;
+    padding: 10px 14px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 0.8rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    gap: 8px;
+    font-size: 0.75rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    white-space: nowrap;
 }
 
 .contact-badge svg {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     color: var(--primary);
     flex-shrink: 0;
     fill: none;
@@ -653,6 +644,15 @@ body {
     color: var(--text-secondary);
 }
 
+/* Left badges */
+.badge-left.badge-1 { top: 30px; left: -140px; }
+.badge-left.badge-2 { top: 90px; left: -120px; }
+
+/* Right badges */
+.badge-right.badge-3 { top: 30px; right: -120px; }
+.badge-right.badge-4 { top: 90px; right: -140px; }
+
+/* Main form card - single centered */
 .contact-form-card {
     padding: 40px;
     position: relative;
@@ -668,8 +668,16 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--primary), rgba(var(--primary-rgb), 0.3));
+    background: linear-gradient(90deg, #e74c3c, rgba(231, 76, 60, 0.3));
     border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.contact-form-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--text-primary);
 }
 
 .contact-form {
@@ -839,15 +847,15 @@ body {
         grid-row: auto;
     }
 
-    .contact-wrapper {
-        grid-template-columns: 1fr;
+    .contact-badge {
+        position: static;
     }
 
-    .contact-info-left,
-    .contact-info-right {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+    .contact-card-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        align-items: center;
     }
 
     .form-row {
