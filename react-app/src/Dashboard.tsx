@@ -109,37 +109,40 @@ function Dashboard() {
       <section className="services" id="services">
         <div className="container">
           <h2 className="section-title">Services</h2>
-          <div className="services-bento">
-            {/* Hardscaping - with thumbnail */}
-            <div className="service-card glass-card has-thumb">
-              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&h=120&fit=crop" alt="Hardscaping" className="service-thumb" />
-              <h3>Hardscaping</h3>
-              <p>Patios, walkways, retaining walls, and outdoor living spaces built to last.</p>
-            </div>
-
-            {/* Lawn Care - organic circular center image */}
-            <div className="service-card-center">
+          <div className="services-layout">
+            {/* Top area: thumbs + organic image + lawn care label */}
+            <div className="services-top">
+              <div className="services-thumbs">
+                <div className="service-thumb-card">
+                  <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=200&h=150&fit=crop" alt="Hardscaping project" />
+                </div>
+                <div className="service-thumb-card">
+                  <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=200&h=150&fit=crop" alt="Garden project" />
+                </div>
+              </div>
               <div className="service-organic-image">
                 <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=500&h=500&fit=crop" alt="Lawn Care" />
               </div>
-              <div className="service-center-info glass-card">
+              <div className="service-lawn-label glass-card">
                 <h3>Lawn Care</h3>
-                <p>Premium lawn maintenance including mowing, fertilization, aeration, and weed control for a lush, healthy yard year-round.</p>
+                <p>Premium lawn maintenance including mowing, fertilization, aeration, and weed control.</p>
+                <span className="service-tag">24hr border radius</span>
               </div>
             </div>
-
-            {/* Tree Services - with thumbnail */}
-            <div className="service-card glass-card has-thumb">
-              <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=200&h=120&fit=crop" alt="Tree Services" className="service-thumb" />
-              <h3>Tree Services</h3>
-              <p>Expert tree trimming, removal, and stump grinding services.</p>
-            </div>
-
-            {/* Garden Design - with thumbnail */}
-            <div className="service-card glass-card has-thumb">
-              <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=200&h=120&fit=crop" alt="Garden Design" className="service-thumb" />
-              <h3>Garden Design</h3>
-              <p>Custom garden layouts with native plants, flower beds, and seasonal color planning.</p>
+            {/* Bottom row: 3 glass cards */}
+            <div className="services-bottom">
+              <div className="service-card glass-card">
+                <h3>Hardscaping</h3>
+                <p>Patios, walkways, retaining walls, and outdoor living spaces built to last.</p>
+              </div>
+              <div className="service-card glass-card">
+                <h3>Garden Design</h3>
+                <p>Custom garden layouts with native plants, flower beds, and seasonal color planning.</p>
+              </div>
+              <div className="service-card glass-card">
+                <h3>Tree Services</h3>
+                <p>Expert tree trimming, removal, and stump grinding services.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -151,7 +154,7 @@ function Dashboard() {
           <h2 className="section-title">Portfolio</h2>
           <div className="portfolio-grid">
             <div className="portfolio-item">
-              <img src="https://images.unsplash.com/photo-1598902108854-d1446306e498?w=400&h=250&fit=crop" alt="Garden project 1" />
+              <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=250&fit=crop" alt="Garden project 1" />
               <div className="portfolio-overlay"><span>Residential Garden</span></div>
             </div>
             <div className="portfolio-item tall">
